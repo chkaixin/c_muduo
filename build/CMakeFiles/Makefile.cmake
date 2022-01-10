@@ -45,6 +45,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/Exception_test.dir/DependInfo.cmake"
+  "CMakeFiles/Timestamp_test.dir/DependInfo.cmake"
+  "CMakeFiles/Atomic_test.dir/DependInfo.cmake"
   "CMakeFiles/muduo.dir/DependInfo.cmake"
-  "CMakeFiles/test.dir/DependInfo.cmake"
   )

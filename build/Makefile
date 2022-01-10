@@ -59,17 +59,6 @@ CMAKE_BINARY_DIR = /home/c_muduo/c_muduo/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/apps/sylar/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -80,6 +69,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/apps/sylar/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -114,6 +114,45 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Exception_test
+
+# Build rule for target.
+Exception_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Exception_test
+.PHONY : Exception_test
+
+# fast build rule for target.
+Exception_test/fast:
+	$(MAKE) -f CMakeFiles/Exception_test.dir/build.make CMakeFiles/Exception_test.dir/build
+.PHONY : Exception_test/fast
+
+#=============================================================================
+# Target rules for targets named Timestamp_test
+
+# Build rule for target.
+Timestamp_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Timestamp_test
+.PHONY : Timestamp_test
+
+# fast build rule for target.
+Timestamp_test/fast:
+	$(MAKE) -f CMakeFiles/Timestamp_test.dir/build.make CMakeFiles/Timestamp_test.dir/build
+.PHONY : Timestamp_test/fast
+
+#=============================================================================
+# Target rules for targets named Atomic_test
+
+# Build rule for target.
+Atomic_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Atomic_test
+.PHONY : Atomic_test
+
+# fast build rule for target.
+Atomic_test/fast:
+	$(MAKE) -f CMakeFiles/Atomic_test.dir/build.make CMakeFiles/Atomic_test.dir/build
+.PHONY : Atomic_test/fast
+
+#=============================================================================
 # Target rules for targets named muduo
 
 # Build rule for target.
@@ -126,18 +165,59 @@ muduo/fast:
 	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/build
 .PHONY : muduo/fast
 
-#=============================================================================
-# Target rules for targets named test
+muduo/base/CurrentThread.o: muduo/base/CurrentThread.cc.o
 
-# Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test
-.PHONY : test
+.PHONY : muduo/base/CurrentThread.o
 
-# fast build rule for target.
-test/fast:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
+# target to build an object file
+muduo/base/CurrentThread.cc.o:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/CurrentThread.cc.o
+.PHONY : muduo/base/CurrentThread.cc.o
+
+muduo/base/CurrentThread.i: muduo/base/CurrentThread.cc.i
+
+.PHONY : muduo/base/CurrentThread.i
+
+# target to preprocess a source file
+muduo/base/CurrentThread.cc.i:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/CurrentThread.cc.i
+.PHONY : muduo/base/CurrentThread.cc.i
+
+muduo/base/CurrentThread.s: muduo/base/CurrentThread.cc.s
+
+.PHONY : muduo/base/CurrentThread.s
+
+# target to generate assembly for a file
+muduo/base/CurrentThread.cc.s:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/CurrentThread.cc.s
+.PHONY : muduo/base/CurrentThread.cc.s
+
+muduo/base/Exception.o: muduo/base/Exception.cc.o
+
+.PHONY : muduo/base/Exception.o
+
+# target to build an object file
+muduo/base/Exception.cc.o:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/Exception.cc.o
+.PHONY : muduo/base/Exception.cc.o
+
+muduo/base/Exception.i: muduo/base/Exception.cc.i
+
+.PHONY : muduo/base/Exception.i
+
+# target to preprocess a source file
+muduo/base/Exception.cc.i:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/Exception.cc.i
+.PHONY : muduo/base/Exception.cc.i
+
+muduo/base/Exception.s: muduo/base/Exception.cc.s
+
+.PHONY : muduo/base/Exception.s
+
+# target to generate assembly for a file
+muduo/base/Exception.cc.s:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/Exception.cc.s
+.PHONY : muduo/base/Exception.cc.s
 
 muduo/base/Timestamp.o: muduo/base/Timestamp.cc.o
 
@@ -166,13 +246,67 @@ muduo/base/Timestamp.cc.s:
 	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/Timestamp.cc.s
 .PHONY : muduo/base/Timestamp.cc.s
 
+muduo/base/tests/Atomic_unittest.o: muduo/base/tests/Atomic_unittest.cc.o
+
+.PHONY : muduo/base/tests/Atomic_unittest.o
+
+# target to build an object file
+muduo/base/tests/Atomic_unittest.cc.o:
+	$(MAKE) -f CMakeFiles/Atomic_test.dir/build.make CMakeFiles/Atomic_test.dir/muduo/base/tests/Atomic_unittest.cc.o
+.PHONY : muduo/base/tests/Atomic_unittest.cc.o
+
+muduo/base/tests/Atomic_unittest.i: muduo/base/tests/Atomic_unittest.cc.i
+
+.PHONY : muduo/base/tests/Atomic_unittest.i
+
+# target to preprocess a source file
+muduo/base/tests/Atomic_unittest.cc.i:
+	$(MAKE) -f CMakeFiles/Atomic_test.dir/build.make CMakeFiles/Atomic_test.dir/muduo/base/tests/Atomic_unittest.cc.i
+.PHONY : muduo/base/tests/Atomic_unittest.cc.i
+
+muduo/base/tests/Atomic_unittest.s: muduo/base/tests/Atomic_unittest.cc.s
+
+.PHONY : muduo/base/tests/Atomic_unittest.s
+
+# target to generate assembly for a file
+muduo/base/tests/Atomic_unittest.cc.s:
+	$(MAKE) -f CMakeFiles/Atomic_test.dir/build.make CMakeFiles/Atomic_test.dir/muduo/base/tests/Atomic_unittest.cc.s
+.PHONY : muduo/base/tests/Atomic_unittest.cc.s
+
+muduo/base/tests/Exception_test.o: muduo/base/tests/Exception_test.cc.o
+
+.PHONY : muduo/base/tests/Exception_test.o
+
+# target to build an object file
+muduo/base/tests/Exception_test.cc.o:
+	$(MAKE) -f CMakeFiles/Exception_test.dir/build.make CMakeFiles/Exception_test.dir/muduo/base/tests/Exception_test.cc.o
+.PHONY : muduo/base/tests/Exception_test.cc.o
+
+muduo/base/tests/Exception_test.i: muduo/base/tests/Exception_test.cc.i
+
+.PHONY : muduo/base/tests/Exception_test.i
+
+# target to preprocess a source file
+muduo/base/tests/Exception_test.cc.i:
+	$(MAKE) -f CMakeFiles/Exception_test.dir/build.make CMakeFiles/Exception_test.dir/muduo/base/tests/Exception_test.cc.i
+.PHONY : muduo/base/tests/Exception_test.cc.i
+
+muduo/base/tests/Exception_test.s: muduo/base/tests/Exception_test.cc.s
+
+.PHONY : muduo/base/tests/Exception_test.s
+
+# target to generate assembly for a file
+muduo/base/tests/Exception_test.cc.s:
+	$(MAKE) -f CMakeFiles/Exception_test.dir/build.make CMakeFiles/Exception_test.dir/muduo/base/tests/Exception_test.cc.s
+.PHONY : muduo/base/tests/Exception_test.cc.s
+
 muduo/base/tests/Timestamp_unittest.o: muduo/base/tests/Timestamp_unittest.cc.o
 
 .PHONY : muduo/base/tests/Timestamp_unittest.o
 
 # target to build an object file
 muduo/base/tests/Timestamp_unittest.cc.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/muduo/base/tests/Timestamp_unittest.cc.o
+	$(MAKE) -f CMakeFiles/Timestamp_test.dir/build.make CMakeFiles/Timestamp_test.dir/muduo/base/tests/Timestamp_unittest.cc.o
 .PHONY : muduo/base/tests/Timestamp_unittest.cc.o
 
 muduo/base/tests/Timestamp_unittest.i: muduo/base/tests/Timestamp_unittest.cc.i
@@ -181,7 +315,7 @@ muduo/base/tests/Timestamp_unittest.i: muduo/base/tests/Timestamp_unittest.cc.i
 
 # target to preprocess a source file
 muduo/base/tests/Timestamp_unittest.cc.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/muduo/base/tests/Timestamp_unittest.cc.i
+	$(MAKE) -f CMakeFiles/Timestamp_test.dir/build.make CMakeFiles/Timestamp_test.dir/muduo/base/tests/Timestamp_unittest.cc.i
 .PHONY : muduo/base/tests/Timestamp_unittest.cc.i
 
 muduo/base/tests/Timestamp_unittest.s: muduo/base/tests/Timestamp_unittest.cc.s
@@ -190,7 +324,7 @@ muduo/base/tests/Timestamp_unittest.s: muduo/base/tests/Timestamp_unittest.cc.s
 
 # target to generate assembly for a file
 muduo/base/tests/Timestamp_unittest.cc.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/muduo/base/tests/Timestamp_unittest.cc.s
+	$(MAKE) -f CMakeFiles/Timestamp_test.dir/build.make CMakeFiles/Timestamp_test.dir/muduo/base/tests/Timestamp_unittest.cc.s
 .PHONY : muduo/base/tests/Timestamp_unittest.cc.s
 
 # Help Target
@@ -199,13 +333,27 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Exception_test"
+	@echo "... Timestamp_test"
+	@echo "... Atomic_test"
 	@echo "... muduo"
-	@echo "... test"
+	@echo "... edit_cache"
+	@echo "... muduo/base/CurrentThread.o"
+	@echo "... muduo/base/CurrentThread.i"
+	@echo "... muduo/base/CurrentThread.s"
+	@echo "... muduo/base/Exception.o"
+	@echo "... muduo/base/Exception.i"
+	@echo "... muduo/base/Exception.s"
 	@echo "... muduo/base/Timestamp.o"
 	@echo "... muduo/base/Timestamp.i"
 	@echo "... muduo/base/Timestamp.s"
+	@echo "... muduo/base/tests/Atomic_unittest.o"
+	@echo "... muduo/base/tests/Atomic_unittest.i"
+	@echo "... muduo/base/tests/Atomic_unittest.s"
+	@echo "... muduo/base/tests/Exception_test.o"
+	@echo "... muduo/base/tests/Exception_test.i"
+	@echo "... muduo/base/tests/Exception_test.s"
 	@echo "... muduo/base/tests/Timestamp_unittest.o"
 	@echo "... muduo/base/tests/Timestamp_unittest.i"
 	@echo "... muduo/base/tests/Timestamp_unittest.s"

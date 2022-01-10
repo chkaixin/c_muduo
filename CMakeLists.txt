@@ -13,15 +13,25 @@ include_directories(.)
 
 set(LIB_SRC
     muduo/base/Timestamp.cc
+    muduo/base/Exception.cc
+    muduo/base/CurrentThread.cc
     )
 
 add_library(muduo SHARED ${LIB_SRC})
 #add_library(muduo_static STATIC ${LIB_SRC})
 #SET_TARGET_PROPERTIES (muduo_static PROPERTIES OUTPUT_NAME "muduo")
 
-add_executable(test muduo/base/tests/Timestamp_unittest.cc)
-add_dependencies(test muduo)
-target_link_libraries(test muduo)
+add_executable(Timestamp_test muduo/base/tests/Timestamp_unittest.cc)
+add_dependencies(Timestamp_test muduo)
+target_link_libraries(Timestamp_test muduo)
+
+add_executable(Atomic_test muduo/base/tests/Atomic_unittest.cc)
+add_dependencies(Atomic_test muduo)
+target_link_libraries(Atomic_test muduo)
+
+add_executable(Exception_test muduo/base/tests/Exception_test.cc)
+add_dependencies(Exception_test muduo)
+target_link_libraries(Exception_test muduo)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
