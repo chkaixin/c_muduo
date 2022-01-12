@@ -63,3 +63,54 @@ Demo test;
 test = Demo(12.2); 或者
 
 test = (Demo)12.2;
+
+2.__thread，gcc内置的线程局部存储设施
+
+__thread只能修饰POD类型
+
+POD类型（plain old data），与C兼容的原始数据，例如，结构和整型等C语言中的类型是 POD 类型，但带有用户定义的构造函数或虚函数的类则不是
+
+__thread string t_obj1(“cppcourse”);	// 错误，不能调用对象的构造函数
+
+__thread string* t_obj2 = new string;	// 错误，初始化只能是编译期常量
+
+__thread string* t_obj3 = NULL;	// 正确
+
+3.线程标识符: pthread_self/gettid
+
+Linux中，每个进程有一个pid，类型pid_t，由getpid()取得。Linux下的POSIX线程也有一个id，类型 pthread_t，由pthread_self()取得，该id由线程库维护，其id空间是各个进程独立的（即不同进程中的线程可能有相同的id）。Linux中的POSIX线程库实现的线程其实也是一个进程（LWP），只是该进程与主进程（启动线程的进程）共享一些资源而已，比如代码段，数据段等。
+有时候我们可能需要知道线程的真实pid。比如进程P1要向另外一个进程P2中的某个线程发送信号时，既不能使用P2的pid，更不能使用线程的pthread id，而只能使用该线程的真实pid，称为tid。
+
+有一个函数gettid()可以得到tid，但glibc并没有实现该函数，只能通过Linux的系统调用syscall来获取。
+return syscall(SYS_gettid)
+
+4.pthread_atfork()
+
+```c++
+#include <pthread.h>
+int pthread_atfork(void (*prepare)(void), void (*parent)(void), void (*child)(void));
+```
+
+调用fork时，内部创建子进程前在父进程中会调用prepare，内部创建子进程成功后，父进程会调用parent ，子进程会调用child
+
+5.std::is_same: 判断类型是否一致
+
+bool isInt = std::is_same<int, int>::value; //为true
+
+编译器判断:
+
+static_assert(std::is_same<int, pid_t>::value, "pid_t should be int");
+
+6.pthread_detach()
+
+linux线程执行和windows不同，pthread有两种状态joinable状态和unjoinable状态
+
+一个线程默认的状态是joinable，如果线程是joinable状态，当线程函数自己返回退出时或pthread_exit时都不会释放线程所占用堆栈和线程描述符（总计8K多）。只有当你调用了pthread_join之后这些资源才会被释放。
+若是unjoinable状态的线程，这些资源在线程函数退出时或pthread_exit时自动会被释放。
+
+unjoinable属性可以在pthread_create时指定，或在线程创建后在线程中pthread_detach自己, 如：pthread_detach(pthread_self())，将状态改为unjoinable状态，确保资源的释放。如果线程状态为 joinable,需要在之后适时调用pthread_join
+
+7.prctl(): 设置进程名字
+
+::prctl(PR_SET_NAME, muduo::CurrentThread::t_threadName);
+

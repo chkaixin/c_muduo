@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 project(muduo)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
-set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O0 -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function")
+set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O0 -ggdb -std=c++11 -pthread -Wall -Wno-deprecated -Werror -Wno-unused-function")
 
 include_directories(.)
 #include_directories(/apps/sylar/include)
@@ -15,6 +15,9 @@ set(LIB_SRC
     muduo/base/Timestamp.cc
     muduo/base/Exception.cc
     muduo/base/CurrentThread.cc
+    muduo/base/Thread.cc
+    muduo/base/Condition.cc
+    muduo/base/CountDownLatch.cc
     )
 
 add_library(muduo SHARED ${LIB_SRC})
@@ -32,6 +35,10 @@ target_link_libraries(Atomic_test muduo)
 add_executable(Exception_test muduo/base/tests/Exception_test.cc)
 add_dependencies(Exception_test muduo)
 target_link_libraries(Exception_test muduo)
+
+add_executable(Thread_test muduo/base/tests/Thread_test.cc)
+add_dependencies(Thread_test muduo)
+target_link_libraries(Thread_test muduo)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

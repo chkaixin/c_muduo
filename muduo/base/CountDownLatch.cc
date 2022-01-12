@@ -14,6 +14,7 @@ void CountDownLatch::wait()
     MutexLockGuard lock(mutex_);
     while (count_ > 0)
     {
+        printf("waiting\n");
         condition_.wait();
     }
 }

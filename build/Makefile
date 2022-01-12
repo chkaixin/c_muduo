@@ -114,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named muduo
+
+# Build rule for target.
+muduo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 muduo
+.PHONY : muduo
+
+# fast build rule for target.
+muduo/fast:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/build
+.PHONY : muduo/fast
+
+#=============================================================================
 # Target rules for targets named Exception_test
 
 # Build rule for target.
@@ -125,6 +138,19 @@ Exception_test: cmake_check_build_system
 Exception_test/fast:
 	$(MAKE) -f CMakeFiles/Exception_test.dir/build.make CMakeFiles/Exception_test.dir/build
 .PHONY : Exception_test/fast
+
+#=============================================================================
+# Target rules for targets named Thread_test
+
+# Build rule for target.
+Thread_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Thread_test
+.PHONY : Thread_test
+
+# fast build rule for target.
+Thread_test/fast:
+	$(MAKE) -f CMakeFiles/Thread_test.dir/build.make CMakeFiles/Thread_test.dir/build
+.PHONY : Thread_test/fast
 
 #=============================================================================
 # Target rules for targets named Timestamp_test
@@ -152,18 +178,59 @@ Atomic_test/fast:
 	$(MAKE) -f CMakeFiles/Atomic_test.dir/build.make CMakeFiles/Atomic_test.dir/build
 .PHONY : Atomic_test/fast
 
-#=============================================================================
-# Target rules for targets named muduo
+muduo/base/Condition.o: muduo/base/Condition.cc.o
 
-# Build rule for target.
-muduo: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 muduo
-.PHONY : muduo
+.PHONY : muduo/base/Condition.o
 
-# fast build rule for target.
-muduo/fast:
-	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/build
-.PHONY : muduo/fast
+# target to build an object file
+muduo/base/Condition.cc.o:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/Condition.cc.o
+.PHONY : muduo/base/Condition.cc.o
+
+muduo/base/Condition.i: muduo/base/Condition.cc.i
+
+.PHONY : muduo/base/Condition.i
+
+# target to preprocess a source file
+muduo/base/Condition.cc.i:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/Condition.cc.i
+.PHONY : muduo/base/Condition.cc.i
+
+muduo/base/Condition.s: muduo/base/Condition.cc.s
+
+.PHONY : muduo/base/Condition.s
+
+# target to generate assembly for a file
+muduo/base/Condition.cc.s:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/Condition.cc.s
+.PHONY : muduo/base/Condition.cc.s
+
+muduo/base/CountDownLatch.o: muduo/base/CountDownLatch.cc.o
+
+.PHONY : muduo/base/CountDownLatch.o
+
+# target to build an object file
+muduo/base/CountDownLatch.cc.o:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/CountDownLatch.cc.o
+.PHONY : muduo/base/CountDownLatch.cc.o
+
+muduo/base/CountDownLatch.i: muduo/base/CountDownLatch.cc.i
+
+.PHONY : muduo/base/CountDownLatch.i
+
+# target to preprocess a source file
+muduo/base/CountDownLatch.cc.i:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/CountDownLatch.cc.i
+.PHONY : muduo/base/CountDownLatch.cc.i
+
+muduo/base/CountDownLatch.s: muduo/base/CountDownLatch.cc.s
+
+.PHONY : muduo/base/CountDownLatch.s
+
+# target to generate assembly for a file
+muduo/base/CountDownLatch.cc.s:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/CountDownLatch.cc.s
+.PHONY : muduo/base/CountDownLatch.cc.s
 
 muduo/base/CurrentThread.o: muduo/base/CurrentThread.cc.o
 
@@ -218,6 +285,33 @@ muduo/base/Exception.s: muduo/base/Exception.cc.s
 muduo/base/Exception.cc.s:
 	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/Exception.cc.s
 .PHONY : muduo/base/Exception.cc.s
+
+muduo/base/Thread.o: muduo/base/Thread.cc.o
+
+.PHONY : muduo/base/Thread.o
+
+# target to build an object file
+muduo/base/Thread.cc.o:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/Thread.cc.o
+.PHONY : muduo/base/Thread.cc.o
+
+muduo/base/Thread.i: muduo/base/Thread.cc.i
+
+.PHONY : muduo/base/Thread.i
+
+# target to preprocess a source file
+muduo/base/Thread.cc.i:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/Thread.cc.i
+.PHONY : muduo/base/Thread.cc.i
+
+muduo/base/Thread.s: muduo/base/Thread.cc.s
+
+.PHONY : muduo/base/Thread.s
+
+# target to generate assembly for a file
+muduo/base/Thread.cc.s:
+	$(MAKE) -f CMakeFiles/muduo.dir/build.make CMakeFiles/muduo.dir/muduo/base/Thread.cc.s
+.PHONY : muduo/base/Thread.cc.s
 
 muduo/base/Timestamp.o: muduo/base/Timestamp.cc.o
 
@@ -300,6 +394,33 @@ muduo/base/tests/Exception_test.cc.s:
 	$(MAKE) -f CMakeFiles/Exception_test.dir/build.make CMakeFiles/Exception_test.dir/muduo/base/tests/Exception_test.cc.s
 .PHONY : muduo/base/tests/Exception_test.cc.s
 
+muduo/base/tests/Thread_test.o: muduo/base/tests/Thread_test.cc.o
+
+.PHONY : muduo/base/tests/Thread_test.o
+
+# target to build an object file
+muduo/base/tests/Thread_test.cc.o:
+	$(MAKE) -f CMakeFiles/Thread_test.dir/build.make CMakeFiles/Thread_test.dir/muduo/base/tests/Thread_test.cc.o
+.PHONY : muduo/base/tests/Thread_test.cc.o
+
+muduo/base/tests/Thread_test.i: muduo/base/tests/Thread_test.cc.i
+
+.PHONY : muduo/base/tests/Thread_test.i
+
+# target to preprocess a source file
+muduo/base/tests/Thread_test.cc.i:
+	$(MAKE) -f CMakeFiles/Thread_test.dir/build.make CMakeFiles/Thread_test.dir/muduo/base/tests/Thread_test.cc.i
+.PHONY : muduo/base/tests/Thread_test.cc.i
+
+muduo/base/tests/Thread_test.s: muduo/base/tests/Thread_test.cc.s
+
+.PHONY : muduo/base/tests/Thread_test.s
+
+# target to generate assembly for a file
+muduo/base/tests/Thread_test.cc.s:
+	$(MAKE) -f CMakeFiles/Thread_test.dir/build.make CMakeFiles/Thread_test.dir/muduo/base/tests/Thread_test.cc.s
+.PHONY : muduo/base/tests/Thread_test.cc.s
+
 muduo/base/tests/Timestamp_unittest.o: muduo/base/tests/Timestamp_unittest.cc.o
 
 .PHONY : muduo/base/tests/Timestamp_unittest.o
@@ -334,17 +455,27 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... muduo"
 	@echo "... Exception_test"
+	@echo "... Thread_test"
 	@echo "... Timestamp_test"
 	@echo "... Atomic_test"
-	@echo "... muduo"
-	@echo "... edit_cache"
+	@echo "... muduo/base/Condition.o"
+	@echo "... muduo/base/Condition.i"
+	@echo "... muduo/base/Condition.s"
+	@echo "... muduo/base/CountDownLatch.o"
+	@echo "... muduo/base/CountDownLatch.i"
+	@echo "... muduo/base/CountDownLatch.s"
 	@echo "... muduo/base/CurrentThread.o"
 	@echo "... muduo/base/CurrentThread.i"
 	@echo "... muduo/base/CurrentThread.s"
 	@echo "... muduo/base/Exception.o"
 	@echo "... muduo/base/Exception.i"
 	@echo "... muduo/base/Exception.s"
+	@echo "... muduo/base/Thread.o"
+	@echo "... muduo/base/Thread.i"
+	@echo "... muduo/base/Thread.s"
 	@echo "... muduo/base/Timestamp.o"
 	@echo "... muduo/base/Timestamp.i"
 	@echo "... muduo/base/Timestamp.s"
@@ -354,6 +485,9 @@ help:
 	@echo "... muduo/base/tests/Exception_test.o"
 	@echo "... muduo/base/tests/Exception_test.i"
 	@echo "... muduo/base/tests/Exception_test.s"
+	@echo "... muduo/base/tests/Thread_test.o"
+	@echo "... muduo/base/tests/Thread_test.i"
+	@echo "... muduo/base/tests/Thread_test.s"
 	@echo "... muduo/base/tests/Timestamp_unittest.o"
 	@echo "... muduo/base/tests/Timestamp_unittest.i"
 	@echo "... muduo/base/tests/Timestamp_unittest.s"

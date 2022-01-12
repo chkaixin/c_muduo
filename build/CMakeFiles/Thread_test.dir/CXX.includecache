@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+.././muduo/base/Atomic.h
+muduo/base/noncopyable.h
+.././muduo/base/muduo/base/noncopyable.h
+stdint.h
+-
+
 .././muduo/base/Condition.h
 muduo/base/Mutex.h
 .././muduo/base/muduo/base/Mutex.h
@@ -32,6 +38,20 @@ assert.h
 pthread.h
 -
 
+.././muduo/base/Thread.h
+muduo/base/Atomic.h
+.././muduo/base/muduo/base/Atomic.h
+muduo/base/CountDownLatch.h
+.././muduo/base/muduo/base/CountDownLatch.h
+muduo/base/Types.h
+.././muduo/base/muduo/base/Types.h
+functional
+-
+memory
+-
+pthread.h
+-
+
 .././muduo/base/Types.h
 stdint.h
 -
@@ -44,7 +64,15 @@ assert.h
 
 .././muduo/base/noncopyable.h
 
-/home/c_muduo/c_muduo/muduo/base/CountDownLatch.cc
-muduo/base/CountDownLatch.h
-/home/c_muduo/c_muduo/muduo/base/muduo/base/CountDownLatch.h
+/home/c_muduo/c_muduo/muduo/base/tests/Thread_test.cc
+muduo/base/Thread.h
+/home/c_muduo/c_muduo/muduo/base/tests/muduo/base/Thread.h
+muduo/base/CurrentThread.h
+/home/c_muduo/c_muduo/muduo/base/tests/muduo/base/CurrentThread.h
+string
+-
+stdio.h
+-
+unistd.h
+-
 

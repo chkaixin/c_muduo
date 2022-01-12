@@ -28,6 +28,6 @@ private:
     string stack_;
 };
 
-} // muduo
+} // namespace muduo
 
 #endif // MUDUO_BASE_EXCEPTION_H

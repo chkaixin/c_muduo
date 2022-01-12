@@ -1,6 +1,7 @@
 /home/c_muduo/c_muduo/build/CMakeFiles/rebuild_cache.dir
+/home/c_muduo/c_muduo/build/CMakeFiles/edit_cache.dir
+/home/c_muduo/c_muduo/build/CMakeFiles/muduo.dir
 /home/c_muduo/c_muduo/build/CMakeFiles/Exception_test.dir
+/home/c_muduo/c_muduo/build/CMakeFiles/Thread_test.dir
 /home/c_muduo/c_muduo/build/CMakeFiles/Timestamp_test.dir
 /home/c_muduo/c_muduo/build/CMakeFiles/Atomic_test.dir
-/home/c_muduo/c_muduo/build/CMakeFiles/muduo.dir
-/home/c_muduo/c_muduo/build/CMakeFiles/edit_cache.dir

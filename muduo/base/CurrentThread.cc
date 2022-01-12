@@ -65,5 +65,5 @@ string stackTrace(bool demangle)
     return stack;
 }
 
-} // CurrentThread
-} // muduo
+} // namespace CurrentThread
+} // namespace muduo
